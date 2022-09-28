@@ -6,12 +6,14 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import UserForm from './views/UserForm';
 import UserList from './views/UserList';
 import { Button, Icon } from "@rneui/base";
+import { UsersProvider } from './context/userContext';
 
 const Stack = createNativeStackNavigator()
 
 export default function App(props) {
     return (
-        <NavigationContainer>
+        <UsersProvider>
+            <NavigationContainer>
             <Stack.Navigator initialRouteName="UserList"
                 screenOptions={screenOptions}>
 
@@ -38,6 +40,7 @@ export default function App(props) {
             </Stack.Navigator>
             <StatusBar style='light' />
         </NavigationContainer>
+        </UsersProvider>
     );
 }
 
